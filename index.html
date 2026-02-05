@@ -5,38 +5,41 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Francesco Anniballi | RE/MAX</title>
   <meta name="description" content="Biglietto da visita digitale - Francesco Anniballi, Agente Senior RE/MAX" />
+
   <style>
     :root{
-      /* RE/MAX corporate */
+      /* RE/MAX corporate (digitale) */
       --remax-blue:#003DA5;
       --remax-red:#DC1C2E;
 
-      /* neutrals */
-      --text:#0F172A;
-      --muted:#64748B;
-      --line:#E5E7EB;
+      /* premium neutrals */
       --bg:#F6F7FB;
       --card:#FFFFFF;
+      --text:#0B1220;
+      --muted:#5B667A;
+      --line:#E6E8EE;
 
-      --shadow: 0 16px 40px rgba(2,6,23,.10);
-      --shadow-strong: 0 18px 34px rgba(2,6,23,.18);
-      --radius:22px;
+      --shadow: 0 18px 45px rgba(11,18,32,.10);
+      --shadow2: 0 14px 28px rgba(11,18,32,.10);
+      --radius:24px;
+
+      --icon: var(--remax-blue);
+      --focus: rgba(0,61,165,.18);
     }
 
     *{box-sizing:border-box}
+    html,body{margin:0}
     body{
-      margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
       color:var(--text);
       background:
-        radial-gradient(900px 260px at 50% -120px, rgba(0,61,165,.16), transparent 65%),
-        radial-gradient(900px 260px at 50% 0px, rgba(220,28,46,.10), transparent 65%),
+        radial-gradient(900px 260px at 50% -140px, rgba(0,61,165,.18), transparent 65%),
+        radial-gradient(900px 260px at 50% 40px, rgba(220,28,46,.12), transparent 65%),
         var(--bg);
-      padding:22px 14px 44px;
+      padding:22px 14px 92px; /* spazio per sticky bar */
     }
 
-    .wrap{max-width:580px;margin:0 auto}
-
+    .wrap{max-width:620px;margin:0 auto}
     .card{
       background:var(--card);
       border:1px solid var(--line);
@@ -45,89 +48,69 @@
       overflow:hidden;
     }
 
-    .top{
-      padding:26px 18px 18px;
-      text-align:center;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,1)),
-        radial-gradient(900px 260px at 50% -120px, rgba(0,61,165,.14), transparent 70%),
-        radial-gradient(900px 260px at 50% 0px, rgba(220,28,46,.10), transparent 70%);
-      border-bottom:1px solid var(--line);
-    }
-
-    .brandbar{
+    /* Top logo area (clean corporate) */
+    .logo-wrap{
       display:flex;
       justify-content:center;
-      gap:10px;
-      align-items:center;
-      margin-bottom:12px;
-      flex-wrap:wrap;
+      padding:18px 18px 8px;
+      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,1));
+      border-bottom:1px solid var(--line);
     }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      font-weight:900;
-      letter-spacing:.2px;
-      color:var(--remax-blue);
-    }
-
-    .dot{
-      width:10px;height:10px;border-radius:999px;
-      background:var(--remax-red);
-      box-shadow:0 0 0 4px rgba(220,28,46,.12);
-    }
-
-    /* Logo (tu lo carichi e cambi il file in src) */
     .logo{
-      height:24px;
+      height:clamp(28px, 5vw, 38px);
       width:auto;
       display:block;
-      margin:0 auto 10px;
+    }
+
+    /* Hero */
+    .hero{
+      padding:18px 18px 18px;
+      text-align:center;
+      background:
+        radial-gradient(900px 260px at 50% -120px, rgba(0,61,165,.12), transparent 70%),
+        radial-gradient(900px 260px at 50% 0px, rgba(220,28,46,.10), transparent 70%),
+        #fff;
     }
 
     .avatar{
-      width:152px;
-      height:152px;
-      border-radius:999px;
+      width:164px;height:164px;border-radius:999px;
       margin:8px auto 14px;
-      border:6px solid rgba(255,255,255,.95);
-      box-shadow:var(--shadow-strong);
       object-fit:cover;
       background:#EEF2F7;
       display:block;
+      border:7px solid rgba(255,255,255,.96);
+      box-shadow: 0 22px 44px rgba(11,18,32,.18);
+      outline: 1px solid rgba(0,61,165,.10);
+      outline-offset: 0;
     }
 
     h1{
       margin:0;
-      font-size:26px;
-      letter-spacing:-.02em;
+      font-size:28px;
+      letter-spacing:-.03em;
+      line-height:1.12;
     }
-
     .role{
-      margin:6px 0 0;
+      margin:8px 0 0;
       font-weight:900;
       color:var(--remax-blue);
     }
-
     .sub{
       margin:12px auto 0;
-      max-width:460px;
+      max-width:520px;
       color:var(--muted);
       font-size:14px;
       line-height:1.55;
     }
 
+    /* Primary actions (top) */
     .actions{
-      padding:16px 18px 18px;
+      padding:14px 18px 18px;
       display:grid;
       grid-template-columns:1fr;
       gap:10px;
+      border-top:1px solid var(--line);
+      background:#fff;
     }
 
     .btn{
@@ -142,28 +125,32 @@
       border:1px solid var(--line);
       background:#fff;
       color:var(--text);
+      box-shadow: 0 1px 0 rgba(11,18,32,.03);
+      transition: transform .08s ease, box-shadow .18s ease, border-color .18s ease;
     }
+    .btn:hover{box-shadow:var(--shadow2); transform:translateY(-1px); border-color: rgba(0,61,165,.18)}
+    .btn:active{transform:translateY(0px); box-shadow: 0 8px 18px rgba(11,18,32,.10)}
+    .btn:focus{outline:3px solid var(--focus); outline-offset:2px}
 
     .btn.primary{
       background:var(--remax-red);
       color:#fff;
       border-color:transparent;
-      box-shadow:0 14px 28px rgba(220,28,46,.22);
+      box-shadow:0 16px 30px rgba(220,28,46,.24);
     }
-
+    .btn.primary:hover{box-shadow:0 18px 34px rgba(220,28,46,.26)}
     .btn.secondary{
-      border-color:rgba(0,61,165,.22);
-      color:var(--remax-blue);
+      border-color: rgba(0,61,165,.22);
+      color: var(--remax-blue);
       background:#fff;
     }
 
-    .btn:focus{outline:3px solid rgba(0,61,165,.18); outline-offset:2px}
-
+    /* Sections */
     .section{
       border-top:1px solid var(--line);
-      padding:16px 18px;
+      padding:18px;
+      background:#fff;
     }
-
     .section h2{
       margin:0 0 12px;
       font-size:13px;
@@ -172,64 +159,46 @@
       color:var(--muted);
     }
 
-    .value{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:10px;
-    }
-
-    .bullet{
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:16px;
-      padding:12px 12px;
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-
-    .bullet b{display:block}
-    .bullet .small{color:var(--muted);font-size:13px;margin-top:2px;line-height:1.35}
-
     .grid{
       display:grid;
       grid-template-columns:1fr;
       gap:10px;
     }
 
-    .item{
+    .tile{
       display:flex;
-      gap:10px;
       align-items:flex-start;
-      padding:12px;
+      gap:12px;
+      padding:14px;
       border:1px solid var(--line);
-      border-radius:16px;
+      border-radius:18px;
       background:#fff;
+      transition: box-shadow .18s ease, transform .08s ease, border-color .18s ease;
+    }
+    .tile:hover{
+      box-shadow: var(--shadow2);
+      transform: translateY(-1px);
+      border-color: rgba(0,61,165,.16);
     }
 
-    .item b{display:block}
-    .item a{color:inherit;text-decoration:none}
-    .item a:hover{text-decoration:underline}
-    .small{color:var(--muted);font-size:13px;margin-top:2px;line-height:1.35}
+    .tile b{display:block}
+    .small{color:var(--muted);font-size:13px;margin-top:3px;line-height:1.35}
+    .tile a{color:inherit;text-decoration:none}
+    .tile a:hover{text-decoration:underline}
 
-    /* SVG icons (monochrome, corporate) */
+    /* SVG icons (mono) */
     .i{
       width:18px;height:18px;
-      stroke:var(--remax-blue);
+      stroke:var(--icon);
       stroke-width:2;
       fill:none;
       flex:0 0 auto;
       margin-top:2px;
     }
-    .i.red{stroke:var(--remax-red)}
     .i.white{stroke:#fff}
 
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
+    /* Social chips */
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
     .chip{
       display:inline-flex;
       align-items:center;
@@ -237,24 +206,64 @@
       padding:10px 12px;
       border-radius:999px;
       border:1px solid var(--line);
+      background:#fff;
       text-decoration:none;
       color:var(--text);
       font-weight:900;
-      background:#fff;
+      transition: box-shadow .18s ease, transform .08s ease, border-color .18s ease;
     }
+    .chip:hover{box-shadow:var(--shadow2); transform:translateY(-1px); border-color: rgba(0,61,165,.16)}
+    .chip svg{margin-top:0}
+
+    /* Sticky bottom bar (mobile conversion) */
+    .sticky{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      padding:10px 12px 12px;
+      background:rgba(246,247,251,.78);
+      backdrop-filter: blur(10px);
+      border-top:1px solid rgba(230,232,238,.9);
+      z-index:999;
+    }
+    .sticky .inner{
+      max-width:620px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:10px;
+    }
+    .sbtn{
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 10px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+      font-weight:900;
+      text-decoration:none;
+      box-shadow: 0 8px 18px rgba(11,18,32,.08);
+    }
+    .sbtn.primary{
+      background:var(--remax-red);
+      color:#fff;
+      border-color:transparent;
+      box-shadow:0 14px 26px rgba(220,28,46,.22);
+    }
+    .sbtn:focus{outline:3px solid var(--focus); outline-offset:2px}
 
     .footer{
       text-align:center;
       color:var(--muted);
       font-size:12px;
       padding:14px 10px 0;
+      background:transparent;
     }
 
-    @media (min-width:520px){
+    @media (min-width:560px){
       .actions{grid-template-columns:1fr 1fr}
       .actions .btn:last-child{grid-column:1 / -1}
       .grid{grid-template-columns:1fr 1fr}
-      .value{grid-template-columns:1fr 1fr}
+      .sticky .inner{grid-template-columns:1fr 1fr 1fr}
     }
   </style>
 </head>
@@ -262,15 +271,14 @@
 <body>
   <div class="wrap">
     <div class="card">
-      <div class="top">
-        <div class="brandbar">
-          <span class="pill"><span class="dot"></span> RE/MAX</span>
-          <span class="pill">Roma</span>
-        </div>
 
-        <!-- LOGO (opzionale) — carica tu il file e cambia src -->
-        <!-- <img class="logo" src="./remax-logo.png" alt="RE/MAX"> -->
+      <!-- Logo RE/MAX originale (tu lo carichi nel repo come remax-logo.png) -->
+      <div class="logo-wrap">
+        <img class="logo" src="./remax-logo.png" alt="RE/MAX">
+      </div>
 
+      <div class="hero">
+        <!-- tua foto -->
         <img class="avatar" src="./erewrq.png" alt="Foto profilo">
 
         <h1>Francesco Anniballi</h1>
@@ -310,8 +318,8 @@
 
       <div class="section">
         <h2>Perché scegliere me</h2>
-        <div class="value">
-          <div class="bullet">
+        <div class="grid">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M3 3v18h18"/>
               <path d="M7 14l4-4 3 3 5-6"/>
@@ -322,30 +330,17 @@
             </div>
           </div>
 
-          <div class="bullet">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
             </svg>
             <div>
               <b>Strategia & marketing</b>
-              <div class="small">Presentazione e posizionamento per attirare i buyer giusti.</div>
+              <div class="small">Presentazione e posizionamento per attrarre buyer qualificati.</div>
             </div>
           </div>
 
-          <div class="bullet">
-            <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="8.5" cy="7" r="4"/>
-              <path d="M20 8v6"/>
-              <path d="M23 11h-6"/>
-            </svg>
-            <div>
-              <b>Gestione trattativa</b>
-              <div class="small">Offerte, documenti e tempi con chiarezza e controllo.</div>
-            </div>
-          </div>
-
-          <div class="bullet">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <path d="M14 2v6h6"/>
@@ -353,8 +348,21 @@
               <path d="M8 17h8"/>
             </svg>
             <div>
-              <b>Supporto fino al rogito</b>
-              <div class="small">Assistenza completa, senza sorprese.</div>
+              <b>Gestione documentale</b>
+              <div class="small">Controllo pratiche e tempistiche fino al rogito.</div>
+            </div>
+          </div>
+
+          <div class="tile">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="8.5" cy="7" r="4"/>
+              <path d="M20 8v6"/>
+              <path d="M23 11h-6"/>
+            </svg>
+            <div>
+              <b>Trattativa sicura</b>
+              <div class="small">Offerte, negoziazione e chiusura con chiarezza.</div>
             </div>
           </div>
         </div>
@@ -363,14 +371,14 @@
       <div class="section">
         <h2>Contatti</h2>
         <div class="grid">
-          <div class="item">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
             <div><b>Telefono diretto</b><div class="small"><a href="tel:+393462100895">+39 346 210 0895</a></div></div>
           </div>
 
-          <div class="item">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <rect x="5" y="2" width="14" height="20" rx="2"/>
               <path d="M12 18h.01"/>
@@ -378,7 +386,7 @@
             <div><b>Cellulare</b><div class="small"><a href="tel:+393292628540">+39 329 262 8540</a></div></div>
           </div>
 
-          <div class="item">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 4h16v16H4z"/>
               <polyline points="22,6 12,13 2,6"/>
@@ -386,7 +394,7 @@
             <div><b>Email</b><div class="small"><a href="mailto:francesco.anniballi@remax.it">francesco.anniballi@remax.it</a></div></div>
           </div>
 
-          <div class="item">
+          <div class="tile">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
               <line x1="2" y1="12" x2="22" y2="12"/>
@@ -399,7 +407,7 @@
 
       <div class="section">
         <h2>Posizione</h2>
-        <div class="item">
+        <div class="tile">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/>
             <circle cx="12" cy="11" r="2"/>
@@ -409,7 +417,9 @@
             <div class="small">Lazio · 00132 · Italia</div>
           </div>
         </div>
+
         <div style="height:10px"></div>
+
         <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Viale+Francesco+Caltagirone+436+Roma" target="_blank" rel="noopener">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
@@ -423,16 +433,60 @@
         <h2>Trovami su</h2>
         <div class="chips">
           <a class="chip" href="https://www.linkedin.com/in/francesco-anniballi-741706216/" target="_blank" rel="noopener">
-            <span class="sicon">in</span> LinkedIn
+            <!-- LinkedIn mono (original-style) -->
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="3"/>
+              <line x1="7" y1="10" x2="7" y2="17"/>
+              <line x1="7" y1="7" x2="7.01" y2="7"/>
+              <line x1="11" y1="10" x2="11" y2="17"/>
+              <path d="M17 17v-4a2 2 0 0 0-4 0v4"/>
+            </svg>
+            LinkedIn
           </a>
+
           <a class="chip" href="https://www.instagram.com/planimetrio/" target="_blank" rel="noopener">
-            <span class="sicon">◎</span> Instagram
+            <!-- Instagram mono (original-style) -->
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17" cy="7" r="1"/>
+            </svg>
+            Instagram
           </a>
         </div>
       </div>
     </div>
 
     <div class="footer">© Francesco Anniballi — RE/MAX</div>
+  </div>
+
+  <!-- Sticky conversion bar -->
+  <div class="sticky" aria-label="Azioni rapide">
+    <div class="inner">
+      <a class="sbtn primary" href="tel:+393462100895">
+        <svg class="i white" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.8 12.8 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.8 12.8 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
+        Chiama
+      </a>
+
+      <a class="sbtn" href="https://wa.me/393292628540" target="_blank" rel="noopener">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="5" y="2" width="14" height="20" rx="2"/>
+          <path d="M12 18h.01"/>
+        </svg>
+        WhatsApp
+      </a>
+
+      <a class="sbtn" href="https://drive.google.com/file/d/1Mp3zu_KheXyC08v0lh7oEPviqWQs-5Sc/view?usp=sharing" target="_blank" rel="noopener">
+        <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 3v12"/>
+          <path d="M7 10l5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+        Contatto
+      </a>
+    </div>
   </div>
 </body>
 </html>
