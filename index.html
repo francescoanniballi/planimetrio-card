@@ -6,58 +6,213 @@
   <title>Francesco Anniballi | RE/MAX</title>
   <meta name="description" content="Biglietto da visita digitale - Francesco Anniballi, Agente Senior RE/MAX" />
   <style>
-    :root{--remax-red:#E11C2A;--remax-blue:#003DA5;--text:#1F2933;--muted:#6B7280;--line:#E5E7EB;--card:#fff;--shadow:0 10px 30px rgba(0,0,0,.08);--radius:18px}
+    :root{
+      --remax-blue:#003DA5;
+      --remax-red:#DC1C2E;
+      --text:#0F172A;
+      --muted:#64748B;
+      --line:#E5E7EB;
+      --bg:#F6F7FB;
+      --card:#FFFFFF;
+      --shadow: 0 16px 40px rgba(2,6,23,.10);
+      --radius:22px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(180deg,rgba(0,61,165,.06),rgba(225,28,42,.04)) fixed;color:var(--text);padding:22px 14px 40px}
-    .wrap{max-width:520px;margin:0 auto}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-    .top{padding:22px 18px 14px;text-align:center;background:radial-gradient(900px 260px at 50% -120px,rgba(0,61,165,.18),transparent 70%),radial-gradient(900px 260px at 50% 0px,rgba(225,28,42,.14),transparent 70%),#fff;border-bottom:1px solid var(--line)}
-    .avatar{width:92px;height:92px;border-radius:999px;margin:4px auto 14px;border:4px solid rgba(255,255,255,.9);box-shadow:0 8px 18px rgba(0,0,0,.12);object-fit:cover;background:#f3f4f6;display:block}
-    h1{margin:0;font-size:24px;line-height:1.15}
-    .role{margin:6px 0 0;font-weight:600;color:var(--remax-blue)}
-    .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:#fff;font-weight:700;letter-spacing:.2px;margin-top:10px}
-    .dot{width:10px;height:10px;border-radius:99px;background:var(--remax-red);box-shadow:0 0 0 3px rgba(225,28,42,.12)}
-    .sub{margin:14px auto 0;max-width:340px;color:var(--muted);font-size:14px;line-height:1.4}
-    .actions{padding:14px 18px 18px;display:grid;gap:10px}
-    .btn{display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border-radius:14px;padding:13px 14px;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--text)}
-    .btn.primary{background:var(--remax-red);color:#fff;border-color:transparent;box-shadow:0 10px 22px rgba(225,28,42,.22)}
-    .btn.secondary{background:#fff;border-color:rgba(0,61,165,.25);color:var(--remax-blue)}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 260px at 50% -120px, rgba(0,61,165,.16), transparent 65%),
+        radial-gradient(900px 260px at 50% 0px, rgba(220,28,46,.10), transparent 65%),
+        var(--bg);
+      padding:22px 14px 44px;
+    }
+    .wrap{max-width:560px;margin:0 auto}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .top{
+      padding:26px 18px 18px;
+      text-align:center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,1)),
+        radial-gradient(900px 260px at 50% -120px, rgba(0,61,165,.14), transparent 70%),
+        radial-gradient(900px 260px at 50% 0px, rgba(220,28,46,.10), transparent 70%);
+      border-bottom:1px solid var(--line);
+    }
+    .brandbar{
+      display:flex;justify-content:center;gap:10px;align-items:center;
+      margin-bottom:12px;
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:800;
+      letter-spacing:.2px;
+      color:var(--remax-blue);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:var(--remax-red);
+      box-shadow:0 0 0 4px rgba(220,28,46,.12);
+    }
+    .avatar{
+      width:152px;height:152px;border-radius:999px;
+      margin:6px auto 14px;
+      border:6px solid rgba(255,255,255,.95);
+      box-shadow:0 18px 34px rgba(2,6,23,.18);
+      object-fit:cover;
+      background:#EEF2F7;
+      display:block;
+    }
+    h1{margin:0;font-size:26px;letter-spacing:-.02em}
+    .role{margin:6px 0 0;font-weight:900;color:var(--remax-blue)}
+    .sub{
+      margin:12px auto 0;
+      max-width:440px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+    }
+    .actions{
+      padding:16px 18px 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .btn{
+      display:flex;align-items:center;justify-content:center;gap:10px;
+      text-decoration:none;
+      border-radius:16px;
+      padding:14px 14px;
+      font-weight:900;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--text);
+    }
+    .btn.primary{
+      background:var(--remax-red);
+      color:#fff;
+      border-color:transparent;
+      box-shadow:0 14px 28px rgba(220,28,46,.22);
+    }
+    .btn.secondary{
+      border-color:rgba(0,61,165,.22);
+      color:var(--remax-blue);
+      background:#fff;
+    }
     .section{border-top:1px solid var(--line);padding:16px 18px}
-    .section h2{margin:0 0 10px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .section h2{
+      margin:0 0 12px;
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
     .grid{display:grid;grid-template-columns:1fr;gap:10px}
-    .item{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:14px;background:#fff}
-    .icon{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;background:rgba(0,61,165,.07);color:var(--remax-blue);font-weight:900;flex:0 0 auto}
+    .item{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:12px;border:1px solid var(--line);
+      border-radius:16px;background:#fff;
+    }
+    .icon{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(0,61,165,.08);
+      color:var(--remax-blue);
+      font-weight:900;flex:0 0 auto;
+    }
     .item b{display:block}
     .item a{color:inherit;text-decoration:none}
     .item a:hover{text-decoration:underline}
     .small{color:var(--muted);font-size:13px;margin-top:2px;line-height:1.35}
-    .socials{display:flex;gap:10px;flex-wrap:wrap}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;border:1px solid var(--line);text-decoration:none;color:var(--text);font-weight:800;background:#fff}
-    .sicon{width:26px;height:26px;border-radius:10px;display:grid;place-items:center;background:rgba(225,28,42,.10);color:var(--remax-red);font-weight:900}
+
+    .chips{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      text-decoration:none;color:var(--text);
+      font-weight:900;background:#fff;
+    }
+    .sicon{
+      width:26px;height:26px;border-radius:10px;
+      display:grid;place-items:center;
+      background:rgba(220,28,46,.10);
+      color:var(--remax-red);
+      font-weight:900;
+    }
+
     .footer{text-align:center;color:var(--muted);font-size:12px;padding:14px 10px 0}
+
+    @media (min-width:520px){
+      .actions{grid-template-columns:1fr 1fr}
+      .actions .btn:last-child{grid-column:1 / -1}
+      .grid{grid-template-columns:1fr 1fr}
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
       <div class="top">
-       <img class="avatar" src="./erewrq.png" alt="Foto profilo">
+        <div class="brandbar">
+          <span class="pill"><span class="dot"></span> RE/MAX</span>
+          <span class="pill">Roma</span>
+        </div>
+
+        <img class="avatar" src="./erewrq.png" alt="Foto profilo">
+
         <h1>Francesco Anniballi</h1>
         <div class="role">Agente Senior</div>
-        <div class="badge"><span class="dot"></span> RE/MAX</div>
+
         <div class="sub">
-          Esperto in compravendite residenziali a Roma.<br>
-          Valutazioni precise · Trattative sicure · Supporto fino al rogito.
+          Specializzato in compravendite residenziali a Roma.<br>
+          Valutazione accurata, strategia di vendita e supporto fino al rogito.
         </div>
       </div>
+
       <div class="actions">
-        <a class="btn primary" href="tel:+393462100895">📞 Chiama ora</a>
-        <a class="btn secondary" href="https://wa.me/393292628540" target="_blank">💬 WhatsApp</a>
-        <a class="btn" href="https://drive.google.com/file/d/1Mp3zu_KheXyC08v0lh7oEPviqWQs-5Sc/view?usp=sharing" target="_blank">💾 Salva contatto</a>
+        <a class="btn primary" href="tel:+393462100895">📞 Chiama</a>
+        <a class="btn secondary" href="https://wa.me/393292628540" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn" href="https://drive.google.com/file/d/1Mp3zu_KheXyC08v0lh7oEPviqWQs-5Sc/view?usp=sharing" target="_blank" rel="noopener">💾 Salva contatto</a>
+      </div>
+
+      <div class="section">
+        <h2>Contatti</h2>
+        <div class="grid">
+          <div class="item"><div class="icon">☎</div><div><b>Telefono diretto</b><div class="small"><a href="tel:+393462100895">+39 346 210 0895</a></div></div></div>
+          <div class="item"><div class="icon">📱</div><div><b>Cellulare</b><div class="small"><a href="tel:+393292628540">+39 329 262 8540</a></div></div></div>
+          <div class="item"><div class="icon">✉</div><div><b>Email</b><div class="small"><a href="mailto:francesco.anniballi@remax.it">francesco.anniballi@remax.it</a></div></div></div>
+          <div class="item"><div class="icon">🌐</div><div><b>Sito</b><div class="small"><a href="https://keyhousegroup.it" target="_blank" rel="noopener">keyhousegroup.it</a></div></div></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Posizione</h2>
+        <div class="item"><div class="icon">📍</div><div><b>Viale Francesco Caltagirone 436, Roma</b><div class="small">Lazio · 00132 · Italia</div></div></div>
+        <div style="height:10px"></div>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Viale+Francesco+Caltagirone+436+Roma" target="_blank" rel="noopener">🗺️ Apri su Google Maps</a>
+      </div>
+
+      <div class="section">
+        <h2>Trovami su</h2>
+        <div class="chips">
+          <a class="chip" href="https://www.linkedin.com/in/francesco-anniballi-741706216/" target="_blank" rel="noopener"><span class="sicon">in</span> LinkedIn</a>
+          <a class="chip" href="https://www.instagram.com/planimetrio/" target="_blank" rel="noopener"><span class="sicon">◎</span> Instagram</a>
+        </div>
       </div>
     </div>
+
     <div class="footer">© Francesco Anniballi — RE/MAX</div>
   </div>
 </body>
 </html>
-
