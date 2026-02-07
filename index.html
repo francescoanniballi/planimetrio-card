@@ -75,12 +75,10 @@
   position:absolute;
   inset:0;
   background:
-    linear-gradient(
-      rgba(255,255,255,.55),
-      rgba(255,255,255,.55)
-    ),
+    /* velo più forte = foto più leggera */
+    linear-gradient(rgba(255,255,255,.82), rgba(255,255,255,.82)),
     url("./hero-bg.jpg") center / cover no-repeat;
-  opacity:1; /* l’opacità la controlla il layer bianco sopra */
+  filter: grayscale(100%) contrast(.85) brightness(90);
   z-index:0;
 }
 
