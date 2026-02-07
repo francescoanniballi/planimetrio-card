@@ -2,33 +2,10 @@
 <html lang="it">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Francesco Anniballi | RE/MAX</title>
   <meta name="description" content="Biglietto da visita digitale - Francesco Anniballi, RE/MAX Key House Group - Planimetrio" />
-  <meta name="theme-color" content="#003DA5" />
-  <meta name="color-scheme" content="light" />
-
-  <!-- (facoltativo) Preload se vuoi che lo sfondo appaia subito -->
-  <!-- <link rel="preload" as="image" href="./hero-bg.jpg"> -->
-
-  <!-- Dati strutturati: aiuta Google a capire “chi è” -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"RealEstateAgent",
-    "name":"Francesco Anniballi",
-    "telephone":"+393292628540",
-    "email":"francesco.anniballi@remax.it",
-    "url":"https://keyhousegroup.it",
-    "worksFor":{"@type":"Organization","name":"RE/MAX Key House Group"},
-    "sameAs":[
-      "https://www.instagram.com/planimetrio/",
-      "https://www.tiktok.com/@planimetrio",
-      "https://www.linkedin.com/in/francesco-anniballi-741706216/"
-    ],
-    "address":{"@type":"PostalAddress","addressLocality":"Roma","addressCountry":"IT"}
-  }
-  </script>
+  <meta name="theme-color" content="#003DA5">
 
   <style>
     :root{
@@ -94,6 +71,7 @@
       background:#fff;
       overflow:hidden;
     }
+
     .hero::before{
       content:"";
       position:absolute;
@@ -104,7 +82,32 @@
       filter: grayscale(100%) contrast(.92) brightness(1.05);
       z-index:0;
     }
-    .hero > *{position:relative;z-index:1}
+
+    .hero > *{
+      position:relative;
+      z-index:1;
+    }
+
+    .base-band{
+      background: linear-gradient(90deg, #0B1220, var(--remax-blue));
+      padding:12px 18px;
+      border-top:1px solid rgba(255,255,255,.10);
+    }
+
+    .base-band .mini{
+      color:rgba(255,255,255,.85);
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.02em;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-align:center;
+    }
+    .base-band .dot{
+      width:6px;height:6px;border-radius:99px;background:rgba(255,255,255,.65);
+    }
 
     .avatar{
       width:164px;height:164px;border-radius:999px;
@@ -164,8 +167,6 @@
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
     }
     .btn:hover{box-shadow:var(--shadow2); transform:translateY(-1px); border-color: rgba(0,61,165,.18)}
     .btn:active{transform:translateY(0px); box-shadow: 0 8px 18px rgba(11,18,32,.10)}
@@ -254,8 +255,6 @@
       text-decoration:none;
       box-shadow: 0 10px 22px rgba(0,0,0,.12);
       border:1px solid rgba(0,0,0,.08);
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
     }
     .soc svg{
       width:22px;
@@ -274,18 +273,10 @@
       left:0; right:0; bottom:0;
       padding:10px 12px calc(12px + env(safe-area-inset-bottom));
       background:rgba(246,247,251,.82);
+      backdrop-filter: blur(10px);
       border-top:1px solid rgba(230,232,238,.95);
       z-index:999;
     }
-
-    /* Backdrop blur: solo se supportato (iOS/Chrome ok, fallback pulito altrove) */
-    @supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))){
-      .sticky{
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-      }
-    }
-
     .sticky .inner{
       max-width:620px;
       margin:0 auto;
@@ -311,8 +302,6 @@
       overflow:hidden;
       text-overflow:ellipsis;
       font-size:14px;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
     }
     .sbtn.primary{
       background:var(--remax-red);
@@ -339,7 +328,7 @@
     }
 
     @media (prefers-reduced-motion: reduce){
-      *{ transition:none !important; scroll-behavior:auto !important; }
+      *{ transition:none !important; }
     }
   </style>
 </head>
@@ -371,7 +360,7 @@
           Chiama
         </a>
 
-        <a class="btn secondary" href="https://wa.me/393292628540" target="_blank" rel="noopener noreferrer">
+        <a class="btn secondary" href="https://wa.me/393292628540" target="_blank" rel="noopener">
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
             <rect x="5" y="2" width="14" height="20" rx="2"/>
             <path d="M12 18h.01"/>
@@ -379,8 +368,8 @@
           WhatsApp
         </a>
 
-        <!-- vCard locale: massima compatibilità -->
-        <a class="btn" href="./francesco-anniballi.vcf" download type="text/vcard">
+        <!-- vCard locale su GitHub Pages -->
+        <a class="btn" href="./francesco-anniballi.vcf" download>
           <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 3v12"/>
             <path d="M7 10l5 5 5-5"/>
@@ -390,8 +379,7 @@
         </a>
       </div>
 
-      <!-- Il resto del tuo contenuto rimane uguale: contatti, posizioni, social -->
-      <!-- (puoi incollare qui sotto le tue sezioni così come sono) -->
+      <!-- resto del tuo HTML invariato -->
 
     </div>
   </div>
@@ -406,7 +394,7 @@
         <span class="lbl">Chiama</span>
       </a>
 
-      <a class="sbtn" href="https://wa.me/393292628540" target="_blank" rel="noopener noreferrer">
+      <a class="sbtn" href="https://wa.me/393292628540" target="_blank" rel="noopener">
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="5" y="2" width="14" height="20" rx="2"/>
           <path d="M12 18h.01"/>
@@ -414,7 +402,8 @@
         <span class="lbl">WhatsApp</span>
       </a>
 
-      <a class="sbtn" href="./francesco-anniballi.vcf" download type="text/vcard">
+      <!-- vCard locale su GitHub Pages -->
+      <a class="sbtn" href="./francesco-anniballi.vcf" download>
         <svg class="i" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 3v12"/>
           <path d="M7 10l5 5 5-5"/>
